@@ -1,0 +1,14 @@
+<h1>Products#index</h1>
+
+
+
+<% @products.each do |x| %>
+
+  <p><%= x.productName %></p>
+  <p><%= x.productInfo %></p>
+  <p><%= x.mfr %></p>
+  <p><%= x.price %></p>
+  <p><%= x.quantity %></p>
+
+  <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
+<% end %>
