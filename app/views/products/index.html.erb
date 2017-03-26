@@ -1,9 +1,9 @@
-<h1>Products#index</h1>
+<h1>Products</h1>
 
 
 
 <% @products.each do |x| %>
-
+<div id = "products">
   <p><%= x.productName %></p>
   <p><%= x.productInfo %></p>
   <p><%= x.mfr %></p>
@@ -11,4 +11,6 @@
   <p><%= x.quantity %></p>
 
   <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
+  <br />
+</div>
 <% end %>
