@@ -11,9 +11,10 @@ Rails.application.routes.draw do
 
 
 
-  #get 'display' => 'products#display', as: 'Products'
-  get 'display' => 'products#index', as: 'display'
-  get 'display/:number' => 'products#display', constraints: { number: /\d+/ }, as: 'displayProduct'
+
+  #get 'display' => 'products#index', as: 'display'
+  get 'products' => 'products#index', as: 'display'
+  get 'products/:number' => 'products#display', constraints: { number: /\d+/ }, as: 'displayProduct'
 
   #Main controller
   get 'about' => 'main#about', as: 'about'
