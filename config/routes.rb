@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   #Main controller
   get 'about' => 'main#about', as: 'about'
+  get 'contact' => 'main#contact', as: 'contact'
 
 
 

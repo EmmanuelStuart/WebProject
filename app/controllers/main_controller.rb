@@ -4,9 +4,16 @@ class MainController < ApplicationController
   end
 
   def about
+    @about = PageContent.first
   end
 
-  def display
+  def contact
+    @contact = PageContent.first
+  end
+
+  # def display
+  # end
+  def product
   end
 
 end
