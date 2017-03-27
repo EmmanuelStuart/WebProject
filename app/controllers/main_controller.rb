@@ -11,9 +11,7 @@ class MainController < ApplicationController
     @contact = PageContent.first
   end
 
-  # def display
-  # end
-  def product
+  def display
   end
-
+  
 end

@@ -15,4 +15,5 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:number].to_i)
   end
 
+
 end

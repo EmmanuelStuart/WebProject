@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get 'main/index'
 
 
-  #get 'display' => 'products#index', as: 'display'
+  #get URL => 'controllerName#methodName', as: path
   get 'index' => 'products#index', as: 'products'
-  get 'products/:number' => 'products#product', constraints: { number: /\d+/ }, as: 'displayProduct'
+  get 'products/:number' => 'products#display', constraints: { number: /\d+/ }, as: 'displayProduct'
 
 
   resources 'products', only: [:index, :display]
