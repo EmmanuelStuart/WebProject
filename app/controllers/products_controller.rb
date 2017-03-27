@@ -14,6 +14,9 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:number].to_i)
   end
 
+  # def search
+  #   @product = Product.find(params[:search].to_s)
+  # end
 
 
   # def task_params
