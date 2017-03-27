@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :category
-  validates :name, :price, presence: true
+  validates :productName, :price, presence: true
 
   # def self.search(search)
   #   if search
@@ -10,5 +10,6 @@ class Product < ApplicationRecord
   #   end
   # end
 
+  mount_uploader :image, ImageUploader
 
 end

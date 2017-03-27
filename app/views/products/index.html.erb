@@ -3,7 +3,13 @@
 
 <% @products.each do |x| %>
   <div id = "products">
-    <p><%= x.productName %></p>
+    <h3><%= x.productName %></h3>
+
+    <% if x.image.present?  %>
+      <p><%= image_tag x.image.url %></p>
+    <% end %>
+
+
     <p><%= x.productInfo %></p>
     <p><%= x.mfr %></p>
     <p><%= x.price %></p>
