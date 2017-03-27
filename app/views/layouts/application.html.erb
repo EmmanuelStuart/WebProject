@@ -9,14 +9,10 @@
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Products", display_path %></li>
 
-      </ul>
-    </nav>
+    <!-- this has the nav links in the shared_partials folder -->
+    <%= render partial: 'shared_partials/header' %>
+
     <%= yield %>
   </body>
 </html>
