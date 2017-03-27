@@ -1,24 +1,28 @@
 
 <div id="productSearch">
-  <form action="">
-    Search <input type="text" name="search">
-    <input id="inputSearch" type="submit" value="Submit">
-  </form>
+
+  <!-- not working -->
+  <%= form_tag(display, method: :get) do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'Search, doesnt work yet', productName: nil %>
+  <% end %>
+
+
+
+
 </div>
 
 <h1>Products</h1>
 
-
-
 <% @products.each do |x| %>
-<div id = "products">
-  <p><%= x.productName %></p>
-  <p><%= x.productInfo %></p>
-  <p><%= x.mfr %></p>
-  <p><%= x.price %></p>
-  <p><%= x.quantity %></p>
+  <div id = "products">
+    <p><%= x.productName %></p>
+    <p><%= x.productInfo %></p>
+    <p><%= x.mfr %></p>
+    <p><%= x.price %></p>
+    <p><%= x.quantity %></p>
 
-  <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
-  <br />
-</div>
+    <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
+    <br />
+  </div>
 <% end %>
