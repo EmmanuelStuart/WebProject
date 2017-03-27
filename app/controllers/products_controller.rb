@@ -1,26 +1,18 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    # @products = Product.all
 
-    # @tasks = if params[:search]
-    #   Product.where('name LIKE %?%', "%#{params[:term]}%")
-    # else
-    #   Product.all
-    # end
-    # @products = Product.search(params[:term])
+    if params[:search]
+      # @products = Product.search(params[:search]).order(:productName)
+      @products = Product.where('productName LIKE ?', "%#{params[:search]}%")
+      #.order(:productName)
+    else
+      @products = Product.all
+    end
   end
 
   def display
     @product = Product.find(params[:number].to_i)
   end
-
-  # def search
-  #   @product = Product.find(params[:search].to_s)
-  # end
-
-
-  # def task_params
-  #   params.require(:task).permit(:name, :term)
-  # end
 
 end
