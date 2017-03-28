@@ -13,5 +13,9 @@ class MainController < ApplicationController
 
   def display
   end
-  
+
+  def category
+    @category = Category.first
+  end
+
 end
