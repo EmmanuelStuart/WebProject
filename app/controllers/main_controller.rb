@@ -1,6 +1,7 @@
 class MainController < ApplicationController
 
   def index
+    @category = Category.all
   end
 
   def about
@@ -14,8 +15,8 @@ class MainController < ApplicationController
   def display
   end
 
-  # def category
-  #   @category = Category.first
-  # end
+  def category
+
+  end
 
 end

@@ -11,13 +11,11 @@
         <li class="">Category</li>
         <div class="dropdown-content">
 
+          <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+            <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name)) %>
+            <%= submit_tag 'Submit', name: nil %>
+          <% end %>
 
-
-
-
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
         </div>
       </div>
 
@@ -26,11 +24,6 @@
       <li><%= link_to "Contact", contact_path %></li>
     </ul>
   </nav>
-
-
-
-
-
 
 
 

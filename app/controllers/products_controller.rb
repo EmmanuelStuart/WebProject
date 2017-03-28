@@ -1,18 +1,24 @@
 class ProductsController < ApplicationController
+
+
   def index
-    # @products = Product.all
+
+    @category = Category.all
 
     if params[:search]
-      # @products = Product.search(params[:search]).order(:productName)
       @products = Product.where('productName LIKE ?', "%#{params[:search]}%")
-      #.order(:productName)
+    elsif params[:category_id]
+      @products = Product.where("category_id = #{ params[:category_id] }")
     else
       @products = Product.all
     end
   end
 
   def display
+    @category = Category.all
     @product = Product.find(params[:number].to_i)
   end
+
+
 
 end
