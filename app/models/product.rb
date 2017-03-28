@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  # attr_accessible :productName, :mfr, :productInfo, :price, :quantity
+
   belongs_to :category
   validates :productName, :price, presence: true
 
