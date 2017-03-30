@@ -6,16 +6,16 @@
   <% @products.each do |x| %>
     <div id = "products">
       <h3><%= x.productName %></h3>
+      <p><%= x.mfr %></p>
 
       <% if x.image.present?  %>
         <p><%= image_tag x.image.url %></p>
       <% end %>
 
 
-      <p><%= x.productInfo %></p>
-      <p><%= x.mfr %></p>
-      <p><%= x.price %></p>
-      <p><%= x.quantity %></p>
+      <p>Description: <%= x.productInfo %></p>
+      <p>$<%= x.price %></p>
+      <p>Quantity: <%= x.quantity %></p>
 
       <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
       <br />
