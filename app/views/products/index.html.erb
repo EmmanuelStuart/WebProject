@@ -1,5 +1,7 @@
 
 <h1>Products</h1>
+<p> <%= paginate @products %> </p>
+
 <% if @products.present? %>
   <% @products.each do |x| %>
     <div id = "products">
