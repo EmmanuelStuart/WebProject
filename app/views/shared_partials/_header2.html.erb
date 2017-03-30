@@ -12,7 +12,7 @@
         <div class="dropdown-content">
 
           <%= form_tag(products_path, :method => "get", id: "search-form") do %>
-            <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name)) %>
+            <%= select_tag(:category_ids, options_from_collection_for_select(Category.all, :id, :name)) %>
             <%= submit_tag 'Submit', name: nil %>
           <% end %>
 
@@ -29,7 +29,9 @@
 
   <div id="productSearch">
 
+
     <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+      <%= select_tag(:category_id, content_tag(:option, 'All Products', :value=>"all") + options_from_collection_for_select(Category.all, :id, :name)) %>
       <%= text_field_tag :search, params[:search], placeholder: "Search anything" %>
       <%= submit_tag 'Search', productName: nil %>
     <% end %>

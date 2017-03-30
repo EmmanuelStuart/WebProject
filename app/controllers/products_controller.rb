@@ -6,32 +6,13 @@ class ProductsController < ApplicationController
     @category = Category.all
 
     if params[:search]
-      # @products = Product.where('productName LIKE ?', "%#{params[:search]}%")
-      # @products = Product.where('category LIKE ? ', "#{params[:search]}")
-      # @products = Product.where("category = 'cpu'")
-
-      # @category.each do |c|
-      #   @products = Product.where("productName LIKE '%#{params[:search]}%' OR productInfo LIKE '%#{params[:search]}%'
-      #   OR category_id LIKE '%#{params[:search]}%'")
-      # end
-
-
-      # @categorySearch = Category.find('id').where("name LIKE '%#{params[:search]}%'")
-
-
-      # working
-      @products = Product.where("productName LIKE '%#{params[:search]}%' OR productInfo LIKE '%#{params[:search]}%'")
-
-      # @categorySearch = Category.find_by("name LIKE '%#{params[:search]}%'")
-      # @products = Product.where("productName LIKE '%#{params[:search]}%' OR productInfo LIKE '%#{params[:search]}%'
-      # OR category_id IS '%#{@categorySearch}%'")
-
-
-
-
-
-    elsif params[:category_id]
-      @products = Product.where("category_id = #{ params[:category_id] }")
+      if params[:category_id] == "all"
+        @products = Product.where("productName LIKE '%#{params[:search]}%' OR productInfo LIKE '%#{params[:search]}%'")
+      else
+        # @products = Product.where("category_id LIKE '%#{params[:category_id]}%'").search(params[:search])
+        @products = Product.where("productName LIKE '%#{params[:search]}%' AND category_id LIKE '%#{params[:category_id]}%'")
+        # @products = Product.all
+      end
     else
       @products = Product.all
     end

@@ -1,21 +1,27 @@
 
 <h1>Products</h1>
+<% if @products.present? %>
+  <% @products.each do |x| %>
+    <div id = "products">
+      <h3><%= x.productName %></h3>
 
-<% @products.each do |x| %>
-  <div id = "products">
-    <h3><%= x.productName %></h3>
-
-    <% if x.image.present?  %>
-      <p><%= image_tag x.image.url %></p>
-    <% end %>
+      <% if x.image.present?  %>
+        <p><%= image_tag x.image.url %></p>
+      <% end %>
 
 
-    <p><%= x.productInfo %></p>
-    <p><%= x.mfr %></p>
-    <p><%= x.price %></p>
-    <p><%= x.quantity %></p>
+      <p><%= x.productInfo %></p>
+      <p><%= x.mfr %></p>
+      <p><%= x.price %></p>
+      <p><%= x.quantity %></p>
 
-    <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
-    <br />
-  </div>
+      <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
+      <br />
+    </div>
+  <% end %>
+
+<% else %>
+
+  <h1> No products found </h1>
+
 <% end %>
