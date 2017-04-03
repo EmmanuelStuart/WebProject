@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   #get URL => 'controllerName#methodName', as: path
   get 'index' => 'products#index', as: 'products'
   get 'products/:number' => 'products#display', constraints: { number: /\d+/ }, as: 'displayProduct'
+  get 'recentlyUpdated' => 'products#recentlyUpdated', as: 'displayRecentlyUpdated'
 
 
   resources 'products', only: [:index, :display]
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   #Main controller
   get 'about' => 'main#about', as: 'about'
   get 'contact' => 'main#contact', as: 'contact'
+
 
 
 

@@ -23,6 +23,24 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:number].to_i)
   end
 
+  def recentlyUpdated
+    @productsRecentlyUpdated = Product.where('created_at >= :seven_days_ago or updated_at >= :three_days_ago',
+          :seven_days_ago  => Time.now - 7.days,
+          :three_days_ago => Time.now - 3.days).order(:productName).page(params[:page]).per(2)
+
+    if params[:search]
+      if params[:category_id] == "all"
+        @productsRecentlyUpdated = Product.where("productName LIKE '%#{params[:search]}%' OR productInfo LIKE '%#{params[:search]}%' AND updated_at = #{Time.now - 7.days}").order(:productName).page(params[:page]).per(1)
+      else
+        # @products = Product.where("category_id LIKE '%#{params[:category_id]}%'").search(params[:search])
+        @productsRecentlyUpdated = Product.where("productName LIKE '%#{params[:search]}%' AND category_id LIKE '%#{params[:category_id]}%' AND updated_at = #{Time.now - 7.days}").order(:productName).page(params[:page]).per(1)
+        # @products = Product.all
+      end
+    else
+      @products = Product.all.page(params[:page]).per(2)
+    end
+  end
+
 
 
 end

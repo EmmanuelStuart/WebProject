@@ -1,12 +1,13 @@
 
-<h1>Products</h1>
-<p> <%= paginate @products %> </p>
 
-<% if @products.present? %>
-  <% @products.each do |x| %>
+<h2> ===========================Recently updated=======================</h2>
+<p> <%= paginate @productsRecentlyUpdated %> </p>
+<% if @productsRecentlyUpdated.present? %>
+  <% @productsRecentlyUpdated.each do |x| %>
     <div id = "products">
       <h3><%= x.productName %></h3>
       <p><%= x.mfr %></p>
+      <p>Updated at : <%= x.updated_at %></p>
 
       <% if x.image.present?  %>
         <p><%= image_tag x.image.url %></p>
@@ -21,7 +22,8 @@
       <br />
     </div>
   <% end %>
-
 <% else %>
-  <h1> No products found </h1>
+    <h2> No ecently updated products </h2>
 <% end %>
+
+<p><%= link_to 'Go back', products_path %></p>
