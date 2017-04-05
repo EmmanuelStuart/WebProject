@@ -1,29 +1,36 @@
 
 
-<h2> ===========================Recently updated=======================</h2>
-<p> <%= paginate @productsRecentlyUpdated %> </p>
+<h2> ===Recently updated===</h2>
+
 <% if @productsRecentlyUpdated.present? %>
-  <% @productsRecentlyUpdated.each do |x| %>
-    <div id = "products">
-      <h3><%= x.productName %></h3>
-      <p><%= x.mfr %></p>
-      <p>Updated at : <%= x.updated_at %></p>
+<div class="container-fluid">
+    <div class="row">
+    <% @productsRecentlyUpdated.each do |x| %>
+        <div class="col-xs-6 col-sm-4">
+          <% if x.image.present?  %>
+          <div id ="pictureHolder">
+            <%= link_to displayProduct_path(number: x.id) do %>
+              <p><%= image_tag x.image.url %></p>
+            <% end %>
+          </div>
+          <% end %>
 
-      <% if x.image.present?  %>
-        <p><%= image_tag x.image.url %></p>
-      <% end %>
+          <div id ="titleHolder">
+            <h3><%= x.productName %></h3>
+          </div>
+          <p><%= x.mfr %></p>
+          <p>Updated at : <%= x.updated_at %></p>
+          <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
+          <br />
+        </div>
+    <% end %>
+  </div>
+</div>
 
-
-      <p>Description: <%= x.productInfo %></p>
-      <p>$<%= x.price %></p>
-      <p>Quantity: <%= x.quantity %></p>
-
-      <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
-      <br />
-    </div>
-  <% end %>
 <% else %>
     <h2> No ecently updated products </h2>
 <% end %>
 
-<p><%= link_to 'Go back', products_path %></p>
+<p><%= link_to 'Go back', displayRecentlyUpdated_path %></p>
+
+<p> <%= paginate @productsRecentlyUpdated %> </p>

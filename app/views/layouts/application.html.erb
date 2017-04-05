@@ -11,8 +11,10 @@
   <body>
 
     <!-- this has the nav links in the shared_partials folder -->
-    <%= render partial: 'shared_partials/header2' %>
+    <%= render partial: 'shared_partials/header' %>
 
     <%= yield %>
+    <br/><br/><br/>
+    <%= render partial: 'shared_partials/footer' %>
   </body>
 </html>

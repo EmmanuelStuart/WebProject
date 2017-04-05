@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'index' => 'products#index', as: 'products'
   get 'products/:number' => 'products#display', constraints: { number: /\d+/ }, as: 'displayProduct'
   get 'recentlyUpdated' => 'products#recentlyUpdated', as: 'displayRecentlyUpdated'
-
+  get 'new' => 'products#new', as: 'displayNew'
 
   resources 'products', only: [:index, :display]
 

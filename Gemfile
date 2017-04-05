@@ -63,3 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #pagination
 gem 'kaminari'
+
+
+#bootstrap
+gem 'bootstrap', '~> 4.0.0.alpha6'

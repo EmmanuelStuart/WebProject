@@ -1,0 +1,39 @@
+
+
+<h2> ===========================NEW=======================</h2>
+
+<% if @new.present? %>
+<div class="container-fluid">
+    <div class="row">
+      <% @new.each do |x| %>
+          <div class="col-xs-6 col-sm-4">
+
+            <% if x.image.present?  %>
+            <div id ="pictureHolder">
+              <%= link_to displayProduct_path(number: x.id) do %>
+                <p><%= image_tag x.image.url %></p>
+              <% end %>
+            </div>
+            <% end %>
+            <div id ="titleHolder">
+              <h3><%= x.productName %></h3>
+            </div>
+            <p><%= x.mfr %></p>
+            <p>Updated at : <%= x.updated_at %></p>
+
+
+            <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
+            <br />
+          </div>
+      <% end %>
+    </div>
+</div>
+
+
+<% else %>
+    <h2> No new products </h2>
+<% end %>
+
+<p><%= link_to 'Go back', displayNew_path %></p>
+
+<p> <%= paginate @new %> </p>
