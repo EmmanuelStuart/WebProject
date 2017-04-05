@@ -3,29 +3,29 @@
 
 
   <% if @products.present? %>
-<div class="container-fluid">
-    <div class="row">
-      <% @products.each do |x| %>
-          <div class="col-xs-6 col-sm-4">
-            <% if x.image.present?  %>
-              <div id ="pictureHolder">
-                <%= link_to displayProduct_path(number: x.id) do %>
-                  <p><%= image_tag x.image.url %></p>
+    <div class="container-fluid">
+        <div class="row">
+          <% @products.each do |x| %>
+              <div class="col-xs-6 col-sm-4">
+                <% if x.image.present?  %>
+                  <div id ="pictureHolder">
+                    <%= link_to displayProduct_path(number: x.id) do %>
+                      <p><%= image_tag x.image.url %></p>
+                    <% end %>
+                  </div>
                 <% end %>
+
+                <div id ="titleHolder">
+                  <h3><%= x.productName %></h3>
+                </div>
+                <p><%= x.mfr %></p>
+                <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
+                <br />
+
               </div>
-            <% end %>
-
-            <div id ="titleHolder">
-              <h3><%= x.productName %></h3>
-            </div>
-            <p><%= x.mfr %></p>
-            <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
-            <br />
-
-          </div>
-      <% end %>
-  </div>
-</div>
+          <% end %>
+      </div>
+    </div>
 
   <% else %>
     <h1> No products found </h1>

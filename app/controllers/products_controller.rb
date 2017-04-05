@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 
   def new
     # @new = Product.where("created_at >= #{Time.now - 15.days}").order(:productName).page(params[:page]).per(3)
-    @new = Product.where('created_at >= :fifteen_days_ago', :fifteen_days_ago => Time.now - 15.days).order(:created_at).page(params[:page]).per(3)
+    @new = Product.where('created_at >= :two_days_ago', :two_days_ago => Time.now - 2.days).order(:created_at).page(params[:page]).per(3)
 
     if params[:search]
       if params[:category_id] == "all"

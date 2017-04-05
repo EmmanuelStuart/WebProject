@@ -19,6 +19,7 @@
               <h3><%= x.productName %></h3>
             </div>
             <p><%= x.mfr %></p>
+            <p>Created at : <%= x.created_at %></p>
             <p>Updated at : <%= x.updated_at %></p>
 
 
@@ -34,6 +35,6 @@
     <h2> No new products </h2>
 <% end %>
 
-<p><%= link_to 'Go back', displayNew_path %></p>
+<!-- <p><%= link_to 'Go back', displayNew_path %></p> -->
 
 <p> <%= paginate @new %> </p>

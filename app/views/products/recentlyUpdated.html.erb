@@ -19,6 +19,7 @@
             <h3><%= x.productName %></h3>
           </div>
           <p><%= x.mfr %></p>
+          <p>Created at : <%= x.created_at %></p>
           <p>Updated at : <%= x.updated_at %></p>
           <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
           <br />
@@ -31,6 +32,6 @@
     <h2> No ecently updated products </h2>
 <% end %>
 
-<p><%= link_to 'Go back', displayRecentlyUpdated_path %></p>
+<!-- <p><%= link_to '<< Go back', displayRecentlyUpdated_path %></p> -->
 
 <p> <%= paginate @productsRecentlyUpdated %> </p>

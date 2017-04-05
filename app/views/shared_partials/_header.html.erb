@@ -1,5 +1,8 @@
 <header>
-  <h1> Emmanuel Enterprises </h1>
+
+  <%= link_to root_path do %>
+    <h1> This is my website </h1>
+  <% end %>
 
 
   <nav>
@@ -7,17 +10,20 @@
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Products", products_path %></li>
 
+
       <!-- <div class="dropdown">
         <li class="">Category</li>
         <div class="dropdown-content">
 
-          <%= form_tag(products_path, :method => "get", id: "search-form2") do %>
+          <%= form_tag(products_path, :method => "get", id: "categories-form") do %>
             <%= select_tag(:category_ids, options_from_collection_for_select(Category.all, :id, :name)) %>
             <%= submit_tag 'Submit', name: nil %>
           <% end %>
 
         </div>
       </div> -->
+
+
 
       <li><%= link_to "New Items", displayNew_path %></li>
       <li><%= link_to "Recently Updated Items", displayRecentlyUpdated_path %></li>
