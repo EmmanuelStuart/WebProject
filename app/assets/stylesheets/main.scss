@@ -5,6 +5,11 @@ header{
   background-color: #88f89f;
 }
 
+body {
+   height:100%;
+}
+
+
 nav, ul, li {
   display: inline;
   padding: 14px 16px;
@@ -23,9 +28,12 @@ nav, ul, li {
 
 footer{
   text-align: center;
-  margin: auto;
   line-height: 2px;
   background-color: #88f89f;
-  padding-top: 10px;
-  padding-bottom: 10px;
+
+display: block;
+  bottom:0;
+  width:100%;
+
+
 }
