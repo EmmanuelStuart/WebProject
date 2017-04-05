@@ -23,7 +23,8 @@ nav, ul, li {
 
 #pictureHolder
 {
-  height: 400px;
+  padding: 10px;
+  height: 150px;
 }
 
 footer{
@@ -34,6 +35,11 @@ footer{
 display: block;
   bottom:0;
   width:100%;
+}
 
 
+.eachProduct{
+  border: 2px solid green;
+  border-radius: 25px;
+  padding: 10px;
 }
