@@ -21,7 +21,10 @@ Rails.application.routes.draw do
   get 'about' => 'main#about', as: 'about'
   get 'contact' => 'main#contact', as: 'contact'
 
-  # get 'login' => 'main#login', as: 'login'
+
+  get 'signup' => 'sessions#signup', as: 'signup'
+  get 'login' => 'sessions#login', as: 'login'
+  get 'logout' => 'sessions#logout', as: 'logout'
 
 
 
