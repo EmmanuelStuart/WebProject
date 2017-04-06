@@ -1,8 +1,18 @@
 <header>
 
-  <%= link_to root_path do %>
-    <h1> This is my website </h1>
+
+<%= link_to root_path do %>
+<%= image_tag "stuart.png" %>
+<% end %>
+
+<div id = "login_link">
+  <% if session[:user].nil? %>
+    <%= link_to "Login", login_path %>
+  <% else %>
+    <strong><%= session[:user] %></strong> <%= link_to "Log Out", logout_path %>
   <% end %>
+</div>
+
 
 
   <nav>
@@ -29,6 +39,16 @@
       <li><%= link_to "Recently Updated Items", displayRecentlyUpdated_path %></li>
       <li><%= link_to "About", about_path %></li>
       <li><%= link_to "Contact", contact_path %></li>
+
+
+<!-- this is the same login as the one above -->
+      <% if session[:user].nil? %>
+        <%= link_to "Login", login_path %>
+      <% else %>
+        <%= session[:user] %> <%= link_to "Log Out", logout_path %>
+      <% end %>
+
+
     </ul>
 
 

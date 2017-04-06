@@ -1,0 +1,36 @@
+<h2>SIGNUP</h2>
+
+
+
+<div class="row">
+  <div class="col-md-12 ">
+
+    <%= form_tag(signup_path, :method => "get", id: "signup-form") do %>
+
+        <%= label_tag(:username, "Username ") %><br>
+        <%= text_field_tag :username, params[:username], placeholder: "Username", size: 20  %><br>
+
+        <%= label_tag(:fullName, "Full Name ") %><br>
+        <%= text_field_tag :fullName, params[:fullName], placeholder: "Full Name", size: 20 %><br>
+
+        <%= label_tag(:password, "Password") %><br>
+        <%= password_field_tag :password, params[:password], placeholder: "Password", size: 20 %><br>
+
+        <%= label_tag(:address, "Address") %><br>
+        <%= text_field_tag :address, params[:address], placeholder: "Address", size: 20 %><br>
+
+        <%= label_tag(:email, "Email") %><br>
+        <%= email_field_tag :email, params[:email], placeholder: "Email", size: 20 %><br>
+
+        <%= label_tag(:phone, "Phone") %><br>
+        <%= telephone_field_tag :phone, params[:phone], placeholder: "Phone", size: 20 %><br>
+
+
+<p>
+      <%= button_tag 'Register Account', class: "btn btn-default btn-success btn-md" %>
+</p>
+
+
+    <% end %>
+  </div>
+</div>

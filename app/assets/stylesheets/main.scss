@@ -5,6 +5,9 @@ header{
   background-color: #88f89f;
 }
 
+
+
+
 nav, ul, li {
   display: inline;
   padding: 14px 16px;
@@ -12,20 +15,38 @@ nav, ul, li {
 }
 
 #titleHolder{
-  height: 129px;
+  height: 75px;
   overflow:hidden;
 }
 
 #pictureHolder
 {
-  height: 400px;
+  padding: 10px;
+  height: 150px;
 }
 
 footer{
   text-align: center;
-  margin: auto;
-  line-height: 2px;
+  line-height: 60%;
   background-color: #88f89f;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  bottom:0;
+  width:100%;
+  height: 135px;
+}
+
+
+.eachProduct{
+  border: 2px solid green;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+#login_link{
+  padding: 50px;
+  float: right;
+}
+
+#error_message{
+  padding: 5px;
+background-color: #ff7f71;
 }

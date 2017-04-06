@@ -10,13 +10,13 @@
           <% if x.image.present?  %>
           <div id ="pictureHolder">
             <%= link_to displayProduct_path(number: x.id) do %>
-              <p><%= image_tag x.image.url %></p>
+              <p><%= image_tag x.image.url , height: '100', width: '100'%></p>
             <% end %>
           </div>
           <% end %>
 
           <div id ="titleHolder">
-            <h3><%= x.productName %></h3>
+            <h5><%= x.productName %></h5>
           </div>
           <p><%= x.mfr %></p>
           <p>Created at : <%= x.created_at %></p>
