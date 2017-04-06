@@ -6,12 +6,12 @@
 <div class="container-fluid">
     <div class="row">
       <% @new.each do |x| %>
-          <div class="col-xs-6 col-sm-4 eachProduct">
+          <div class="col-xs-6 col-sm-2 eachProduct">
 
             <% if x.image.present?  %>
             <div id ="pictureHolder">
               <%= link_to displayProduct_path(number: x.id) do %>
-                <p><%= image_tag x.image.url , height: '100', width: '100'%></p>
+                <p><%= image_tag x.image.url , height: '130', width: '180'%></p>
               <% end %>
             </div>
             <% end %>
