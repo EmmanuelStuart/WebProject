@@ -7,11 +7,12 @@ class SessionsController < ApplicationController
 
       @user = User.find_by("username IS '#{params[:username]}'")
 
-      if (params[:username] == @user.username && params[:password] == @user.password)
+      if (@user && params[:username] == @user.username && params[:password] == @user.password)
         session[:user] = @user.username
         redirect_to about_url
       else
-        redirect_to contact_url
+        # render partial: 'shared_partials/footer'
+        session[:error] = "error"
       end
     end
   end
