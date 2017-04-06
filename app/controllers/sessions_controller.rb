@@ -25,10 +25,15 @@ class SessionsController < ApplicationController
 
   def signup
     if params[:username]
-      User.create!(username: params[:username], password: params[:password], fullName: params[:fullName], address: params[:address], email: params[:email], phone: params[:phone])
+      User.create!(username: params[:username], password: params[:password], fullName: params[:fullName], address: params[:address], email: params[:email], phone: params[:phone], province_id: params[:province_id])
+      session[:user] = params[:username]
       redirect_to root_url
     end
- end
+  end
+
+  def selectProvince
+    @province = Province.all
+  end
 
 
 
