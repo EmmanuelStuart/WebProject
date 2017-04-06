@@ -1,43 +1,42 @@
 
-<h1>Products</h1>
-  <ul>
-    <li><%= link_to "CPU", products_path(category_type: 1) %></li>
-    <li><%= link_to "RAM", products_path(category_type: 2) %></li>
-    <li><%= link_to "Storage", products_path(category_type: 3) %></li>
-    <li><%= link_to "GPU", products_path(category_type: 4) %></li>
-    <li><%= link_to "Case", products_path(category_type: 5) %></li>
-    <li><%= link_to "Motherboard", products_path(category_type: 6) %></li>
-  </ul>
+<div class="container-fluid">
+  <div class="row">
 
-  <% if @products.present? %>
+    <%= render partial: 'shared_partials/sidebar' %>
 
-    <div class="container-fluid">
-      <div class="row">
-        <% @products.each do |x| %>
-          <div class="col-xs-6 col-sm-2 eachProduct">
-            <% if x.image.present?  %>
-              <div id ="pictureHolder">
-                <%= link_to displayProduct_path(number: x.id) do %>
-                  <p><%= image_tag x.image.url , height: '130', width: '180'%></p>
-                <% end %>
+      <div class="col-xs-6 col-sm-10">
+        <h1>Products</h1>
+
+            <% if @products.present? %>
+
+              <div class="container-fluid">
+                <div class="row">
+                  <% @products.each do |x| %>
+                    <div class="col-xs-6 col-sm-2 eachProduct">
+                      <% if x.image.present?  %>
+                        <div id ="pictureHolder">
+                          <%= link_to displayProduct_path(number: x.id) do %>
+                            <p><%= image_tag x.image.url , height: '110', width: '150'%></p>
+                          <% end %>
+                        </div>
+                      <% end %>
+
+                      <div id ="titleHolder">
+                        <h5><%= x.productName %></h5>
+                      </div>
+                      <p><small><%= x.mfr %></small></p>
+                      <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
+                      <br />
+
+
+                        </div>
+                    <% end %>
+                </div>
               </div>
+
+            <% else %>
+              <h1> No products found </h1>
             <% end %>
 
-            <div id ="titleHolder">
-              <h5><%= x.productName %></h5>
-            </div>
-            <p><small><%= x.mfr %></small></p>
-            <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
-            <br />
-
-
-              </div>
-          <% end %>
+            <p> <%= paginate @products %> </p>
       </div>
-    </div>
-
-  <% else %>
-    <h1> No products found </h1>
-  <% end %>
-
-<p> <%= paginate @products %> </p>

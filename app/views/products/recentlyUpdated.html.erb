@@ -1,37 +1,43 @@
 
-
-<h2> ===Recently updated===</h2>
-
-<% if @productsRecentlyUpdated.present? %>
 <div class="container-fluid">
-    <div class="row">
-    <% @productsRecentlyUpdated.each do |x| %>
-        <div class="col-xs-6 col-sm-2 eachProduct">
-          <% if x.image.present?  %>
-          <div id ="pictureHolder">
-            <%= link_to displayProduct_path(number: x.id) do %>
-              <p><%= image_tag x.image.url , height: '130', width: '180'%></p>
-            <% end %>
+  <div class="row">
+
+    <%= render partial: 'shared_partials/sidebar' %>
+
+    <div class="col-xs-6 col-sm-10">
+          <h2> ===Recently updated===</h2>
+
+          <% if @productsRecentlyUpdated.present? %>
+          <div class="container-fluid">
+              <div class="row">
+              <% @productsRecentlyUpdated.each do |x| %>
+                  <div class="col-xs-6 col-sm-2 eachProduct">
+                    <% if x.image.present?  %>
+                    <div id ="pictureHolder">
+                      <%= link_to displayProduct_path(number: x.id) do %>
+                        <p><%= image_tag x.image.url , height: '110', width: '150'%></p>
+                      <% end %>
+                    </div>
+                    <% end %>
+
+                    <div id ="titleHolder">
+                      <h5><%= x.productName %></h5>
+                    </div>
+                    <p><%= x.mfr %></p>
+                    <p>Created at : <%= x.created_at %></p>
+                    <p>Updated at : <%= x.updated_at %></p>
+                    <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
+                    <br />
+                  </div>
+              <% end %>
+            </div>
           </div>
+
+          <% else %>
+              <h2> No ecently updated products </h2>
           <% end %>
 
-          <div id ="titleHolder">
-            <h5><%= x.productName %></h5>
-          </div>
-          <p><%= x.mfr %></p>
-          <p>Created at : <%= x.created_at %></p>
-          <p>Updated at : <%= x.updated_at %></p>
-          <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
-          <br />
-        </div>
-    <% end %>
-  </div>
-</div>
+          <!-- <p><%= link_to '<< Go back', displayRecentlyUpdated_path %></p> -->
 
-<% else %>
-    <h2> No ecently updated products </h2>
-<% end %>
-
-<!-- <p><%= link_to '<< Go back', displayRecentlyUpdated_path %></p> -->
-
-<p> <%= paginate @productsRecentlyUpdated %> </p>
+          <p> <%= paginate @productsRecentlyUpdated %> </p>
+    </div>
