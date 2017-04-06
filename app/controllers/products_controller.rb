@@ -13,8 +13,10 @@ class ProductsController < ApplicationController
         @products = Product.where("productName LIKE '%#{params[:search]}%' AND category_id LIKE '%#{params[:category_id]}%'").order(:productName).page(params[:page]).per(3)
         # @products = Product.all
       end
+    elsif params[:category_type]
+      @products = Product.where("category_id = #{params[:category_type]}").order(:productName).page(params[:page]).per(3)
     else
-      @products = Product.all.page(params[:page]).per(3)
+      @products = Product.all.page(params[:page]).per(6)
     end
   end
 
