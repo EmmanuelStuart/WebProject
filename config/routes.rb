@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   get 'main/index'
 
-
   #get URL => 'controllerName#methodName', as: path
   get 'index' => 'products#index', as: 'products'
   get 'products/:number' => 'products#display', constraints: { number: /\d+/ }, as: 'displayProduct'
@@ -21,13 +20,9 @@ Rails.application.routes.draw do
   get 'about' => 'main#about', as: 'about'
   get 'contact' => 'main#contact', as: 'contact'
 
-
   get 'signup' => 'sessions#signup', as: 'signup'
   get 'login' => 'sessions#login', as: 'login'
   get 'logout' => 'sessions#logout', as: 'logout'
-
-
-
 
   root 'main#index'
 end

@@ -1,12 +1,12 @@
 
 
-<h2> ===========================NEW=======================</h2>
+<h2>===New Items===</h2>
 
 <% if @new.present? %>
 <div class="container-fluid">
     <div class="row">
       <% @new.each do |x| %>
-          <div class="col-xs-6 col-sm-4">
+          <div class="col-xs-6 col-sm-4 eachProduct">
 
             <% if x.image.present?  %>
             <div id ="pictureHolder">
