@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'charges/new'
+
+  get 'charges/create'
+
   get 'products/index'
 
   get 'products/display'
@@ -16,6 +20,8 @@ Rails.application.routes.draw do
 
   resources 'products', only: [:index, :display]
 
+  #resources :charges
+
   #Main controller
   get 'about' => 'main#about', as: 'about'
   get 'contact' => 'main#contact', as: 'contact'
@@ -25,4 +31,6 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#logout', as: 'logout'
 
   root 'main#index'
+
+
 end

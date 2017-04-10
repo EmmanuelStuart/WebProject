@@ -67,3 +67,7 @@ gem 'kaminari'
 
 #bootstrap
 gem 'bootstrap', '~> 4.0.0.alpha6'
+
+
+#stripe
+gem 'stripe'
