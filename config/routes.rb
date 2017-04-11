@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'order/cart'
+
   get 'charges/new'
 
   get 'charges/create'
@@ -29,6 +31,7 @@ Rails.application.routes.draw do
   get 'signup' => 'sessions#signup', as: 'signup'
   get 'login' => 'sessions#login', as: 'login'
   get 'logout' => 'sessions#logout', as: 'logout'
+  get 'cart' => 'order#cart', as: 'cart'
 
   root 'main#index'
 

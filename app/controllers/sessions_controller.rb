@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
 
       if (@user && params[:username] == @user.username && params[:password] == @user.password)
         session[:user] = @user.username
+        # session[:userID] = @user.id
         redirect_to about_url
       else
         # render partial: 'shared_partials/footer'
