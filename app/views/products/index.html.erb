@@ -26,6 +26,10 @@
                       </div>
                       <p><small><%= x.mfr %></small></p>
                       <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
+
+                      <%= link_to displayRecentlyUpdated_path do %>
+                      <%= image_tag "addToCart.png" %>
+                      <% end %>
                       <br />
 
 
