@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   resources 'products', only: [:index, :display]
 
   #resources :charges
-
   #Main controller
   get 'about' => 'main#about', as: 'about'
   get 'contact' => 'main#contact', as: 'contact'
@@ -34,6 +33,4 @@ Rails.application.routes.draw do
   get 'cart' => 'order#cart', as: 'cart'
 
   root 'main#index'
-
-
 end

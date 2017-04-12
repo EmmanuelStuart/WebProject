@@ -1,12 +1,8 @@
-
 <div class="container-fluid">
   <div class="row">
-
     <%= render partial: 'shared_partials/sidebar' %>
-
     <div class="col-xs-6 col-sm-10">
           <h2> ===Recently updated===</h2>
-
           <% if @productsRecentlyUpdated.present? %>
           <div class="container-fluid">
               <div class="row">
@@ -19,7 +15,6 @@
                       <% end %>
                     </div>
                     <% end %>
-
                     <div id ="titleHolder">
                       <h5><%= x.productName %></h5>
                     </div>
@@ -33,12 +28,8 @@
               <% end %>
             </div>
           </div>
-
           <% else %>
               <h2> No ecently updated products </h2>
           <% end %>
-
-          <!-- <p><%= link_to '<< Go back', displayRecentlyUpdated_path %></p> -->
-
           <p> <%= paginate @productsRecentlyUpdated %> </p>
     </div>

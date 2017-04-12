@@ -1,18 +1,13 @@
-
 <div class="container-fluid">
   <div class="row">
-
     <%= render partial: 'shared_partials/sidebar' %>
-
     <div class="col-xs-6 col-sm-10">
       <h2>===New Items===</h2>
-
       <% if @new.present? %>
       <div class="container-fluid">
           <div class="row">
             <% @new.each do |x| %>
                 <div class="col-xs-6 col-sm-2 eachProduct">
-
                   <% if x.image.present?  %>
                   <div id ="pictureHolder">
                     <%= link_to displayProduct_path(number: x.id) do %>
@@ -26,8 +21,6 @@
                   <p><%= x.mfr %></p>
                   <p>Created at : <%= x.created_at %></p>
                   <p>Updated at : <%= x.updated_at %></p>
-
-
                   <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
                   <%= image_tag "addToCart.png" %>
                   <br />
@@ -35,13 +28,8 @@
             <% end %>
           </div>
       </div>
-
-
       <% else %>
           <h2> No new products </h2>
       <% end %>
-
-      <!-- <p><%= link_to 'Go back', displayNew_path %></p> -->
-
       <p> <%= paginate @new %> </p>
     </div>

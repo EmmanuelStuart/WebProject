@@ -1,5 +1,4 @@
 class MainController < ApplicationController
-
   def index
     @category = Category.all
   end
@@ -11,6 +10,4 @@ class MainController < ApplicationController
   def contact
     @contact = PageContent.first
   end
-
-
 end

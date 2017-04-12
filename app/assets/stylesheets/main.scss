@@ -14,16 +14,7 @@ nav, ul, li {
   text-decoration: none;
 }
 
-#titleHolder{
-  height: 70px;
-  overflow:hidden;
-}
 
-#pictureHolder
-{
-  padding: 10px;
-  height: 150px;
-}
 
 footer{
   text-align: center;
@@ -41,6 +32,22 @@ footer p{
   border: 2px solid #88f89f;
   border-radius: 25px;
   padding: 10px;
+  width: auto;
+}
+
+
+// #titleHolder{
+//   height: 10%;
+//   overflow:hidden;
+// }
+//
+// #pictureHolder
+// {
+//   height: 20%;
+// }
+#pictureHolder img{
+    height:20%;
+    width: 20%;
 }
 
 #login_link{

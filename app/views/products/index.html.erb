@@ -1,18 +1,13 @@
-
 <div class="container-fluid">
   <div class="row">
-
     <%= render partial: 'shared_partials/sidebar' %>
-
-      <div class="col-xs-6 col-sm-10">
+      <div class="col-sm-10">
         <h1>Products</h1>
-
             <% if @products.present? %>
-
               <div class="container-fluid">
                 <div class="row">
                   <% @products.each do |x| %>
-                    <div class="col-xs-6 col-sm-2 eachProduct">
+                    <div class="eachProduct">
                       <% if x.image.present?  %>
                         <div id ="pictureHolder">
                           <%= link_to displayProduct_path(number: x.id) do %>
@@ -20,7 +15,6 @@
                           <% end %>
                         </div>
                       <% end %>
-
                       <div id ="titleHolder">
                         <h5><%= x.productName %></h5>
                       </div>
@@ -31,16 +25,12 @@
                       <%= image_tag "addToCart.png" %>
                       <% end %>
                       <br />
-
-
-                        </div>
-                    <% end %>
+                    </div>
+                  <% end %>
                 </div>
               </div>
-
             <% else %>
               <h1> No products found </h1>
             <% end %>
-
-            <p> <%= paginate @products %> </p>
+          <p> <%= paginate @products %> </p>
       </div>

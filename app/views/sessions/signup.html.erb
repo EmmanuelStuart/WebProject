@@ -4,6 +4,11 @@
 
 <div class="row">
   <div class="col-md-12 ">
+    <% flash.each do |key, value| %>
+          <div class="alert alert-success">
+              <p> <%= value %> </p>
+          </div>
+          <% end %>
 
     <%= form_tag(signup_path, :method => "get", id: "signup-form") do %>
 
@@ -19,12 +24,9 @@
         <strong><%= label_tag(:address, "Address") %></strong><br>
         <%= text_field_tag :address, params[:address], placeholder: "Address", size: 20 %><br>
 
-
-        <!-- add PROVINCS here -->
+        <!-- add PROVINCES here -->
         <strong><%= label_tag(:province, "Province") %></strong><br>
         <%= select_tag(:province_id, content_tag(:option, '', :value=>"") + options_from_collection_for_select(Province.all, :id, :name)) %><br>
-
-
 
         <strong><%= label_tag(:email, "Email") %></strong><br>
         <%= email_field_tag :email, params[:email], placeholder: "Email", size: 20 %><br>
@@ -32,11 +34,7 @@
         <strong><%= label_tag(:phone, "Phone") %></strong><br>
         <%= telephone_field_tag :phone, params[:phone], placeholder: "Phone", size: 20 %><br>
 
-
-<p>
-      <%= button_tag 'Register Account', class: "btn btn-default btn-success btn-md" %>
-</p>
-
+<p><%= button_tag 'Register Account', class: "btn btn-default btn-success btn-md" %></p>
 
     <% end %>
   </div>
