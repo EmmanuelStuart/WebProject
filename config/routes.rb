@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#login', as: 'login'
   get 'logout' => 'sessions#logout', as: 'logout'
   get 'cart' => 'order#cart', as: 'cart'
+  get 'cart/:items_on_cart' => 'order#cart', as: 'cart2'
+
 
   root 'main#index'
 end

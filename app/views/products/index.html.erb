@@ -3,6 +3,11 @@
     <%= render partial: 'shared_partials/sidebar' %>
       <div class="col-sm-10">
         <h1>Products</h1>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-success">
+              <p> <%= value %> </p>
+          </div>
+        <% end %>
             <% if @products.present? %>
               <div class="container-fluid">
                 <div class="row">
@@ -21,8 +26,19 @@
                       <p><small><%= x.mfr %></small></p>
                       <p><%= link_to 'Show details', displayProduct_path(number: x.id) %></p>
 
-                      <%= link_to displayRecentlyUpdated_path do %>
+                      <%= link_to cart_path(addItem: x.id) do %>
                       <%= image_tag "addToCart.png" %>
+                      <%= x.id %>
+
+
+                      <%= form_tag(products_path, :method => "get", class:"form-inline") do %>
+                        <%= select_tag(:category_id, content_tag(:option, 'All Products', :value=>"all") + options_from_collection_for_select(Category.all, :id, :name)) %>
+                        <%= search_field_tag :search, params[:search], placeholder: "Search anything", size: 25 %>
+                        <%= submit_tag 'Search', productName: nil %>
+                      <% end %>
+
+
+
                       <% end %>
                       <br />
                     </div>

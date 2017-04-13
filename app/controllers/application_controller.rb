@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
   def flash_class(level)
     case level
         when :notice then "alert alert-info"

@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
+    session[:items_on_cart] ||= []
     @category = Category.all
     if params[:search]
       if params[:category_id] == "all"

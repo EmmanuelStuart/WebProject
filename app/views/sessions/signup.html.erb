@@ -5,10 +5,10 @@
 <div class="row">
   <div class="col-md-12 ">
     <% flash.each do |key, value| %>
-          <div class="alert alert-success">
-              <p> <%= value %> </p>
-          </div>
-          <% end %>
+      <div class="alert alert-success">
+          <p> <%= value %> </p>
+      </div>
+    <% end %>
 
     <%= form_tag(signup_path, :method => "get", id: "signup-form") do %>
 

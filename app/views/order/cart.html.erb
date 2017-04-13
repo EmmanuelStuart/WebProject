@@ -1,8 +1,12 @@
-<h1>Order#cart</h1>
-<p>Find me in app/views/order/cart.html.erb</p>
+<h1>My cart</h1>
 
-  <% if @cart.present? %>
-    <p> has orders </p>
-  <% else %>
-    <p> no orders </p>
+<% if session[:items_on_cart].empty? %>
+  <% @products_on_cart.each_with_index do |item, index| %>
+  <ul>
+    <li><%= index %> <%= item.name %></li>
+    <li><%= item.price %></li>
+  </ul>
   <% end %>
+<% else %>
+  <h2> no products in cart </h2>
+<% end %>
